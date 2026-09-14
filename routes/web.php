@@ -29,7 +29,4 @@ Route::middleware(['auth', 'verified'])
         Route::get('/', [DasboardController::class, 'index'])
             ->name('index');
 
-        Route::get('/profile', [DasboardController::class, 'profile'])
-            ->name('profile');
-
     });
