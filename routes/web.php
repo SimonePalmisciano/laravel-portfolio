@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Admin\DasboardController;
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -21,12 +23,18 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 
-Route::middleware(['auth', 'verified'])
-    ->name('admin.')// tutte le rotte all'interno della group devono avere come name questo qui
-    ->prefix('admin')// prefisso nell'URL es: admin/index admin/user
-    ->group( function () {
+// Route::middleware(['auth', 'verified'])
+//     ->name('admin.')// tutte le rotte all'interno della group devono avere come name questo qui
+//     ->prefix('admin')// prefisso nell'URL es: admin/index admin/user
+//     ->group( function () {
 
-        Route::get('/', [DasboardController::class, 'index'])
-            ->name('index');
+//         Route::get('/', [DashboardController::class, 'index'])
+//             ->name('index');
 
-    });
+//     });
+
+Route::resource('admin', DashboardController::class)
+    ->middleware(['auth', 'verified']);
+
+Route::resource('project', ProjectController::class)
+    ->middleware(['auth', 'verified']);
