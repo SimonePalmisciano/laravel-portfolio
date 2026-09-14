@@ -6,11 +6,11 @@
             <div class="col-6">
                 <div class="card">
                     <h5>
-                        Admin nome:
+                        Admin nome: {{$user['name']}}
                     </h5>
 
                     <p>
-                        Admin email:
+                        Admin email: {{$user['email']}}
                     </p>
                 </div>
             </div>
