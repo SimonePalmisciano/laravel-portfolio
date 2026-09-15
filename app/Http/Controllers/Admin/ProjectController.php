@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Project;
+use Carbon\Carbon;
+use DateTime;
 use Illuminate\Http\Request;
 
 class ProjectController extends Controller
@@ -31,7 +33,21 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $stringDate = $data['period'];
+        // dd($stringDate);
+        $date = Carbon::parse($stringDate)->format('Y-m-d');
+
+        $newProject = new Project();
+
+        $newProject->name = $data['name'];
+        $newProject->client = $data['client'];
+        $newProject->period = $date;
+        $newProject->summary = $data['summary'];
+
+        $newProject->save();
+
+        return redirect()->route('projects.show', $newProject);
     }
 
     /**
