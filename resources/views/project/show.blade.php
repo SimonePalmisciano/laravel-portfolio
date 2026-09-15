@@ -15,6 +15,11 @@
                         {{ $project->client }}
                     </p>
                 </div>
+                <div>
+                    <a class="btn btn-outline-secondary" href="{{route('projects.edit', $project)}}">
+                        Modifica
+                    </a>
+                </div>
                 <hr>
                 <div class="card-body">
                     <small>

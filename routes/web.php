@@ -10,9 +10,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', [DashboardController::class, 'index'])
+    ->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -20,21 +19,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::resource('projects', ProjectController::class)
+    ->middleware(['auth', 'verified']);
+
+
 require __DIR__.'/auth.php';
-
-
-// Route::middleware(['auth', 'verified'])
-//     ->name('admin.')// tutte le rotte all'interno della group devono avere come name questo qui
-//     ->prefix('admin')// prefisso nell'URL es: admin/index admin/user
-//     ->group( function () {
-
-//         Route::get('/', [DashboardController::class, 'index'])
-//             ->name('index');
-
-//     });
-
-Route::resource('admin', DashboardController::class)
-    ->middleware(['auth', 'verified']);
-
-Route::resource('project', ProjectController::class)
-    ->middleware(['auth', 'verified']);
