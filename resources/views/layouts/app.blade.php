@@ -83,6 +83,9 @@
 
     <main class="">
         <div class="container">
+            <h1>
+                @yield('title')
+            </h1>
             @yield('content')
         </div>
     </main>

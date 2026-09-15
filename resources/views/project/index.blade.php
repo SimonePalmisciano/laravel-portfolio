@@ -4,7 +4,14 @@
 
 @section('content')
 
-    <div class="container my-5">
+
+
+    <div class="container mb-5">
+        <div class="mb-4">
+            <a class="btn btn-outline-primary" href="{{route('projects.create')}}">
+                Aggiungi un nuovo Progetto
+            </a>
+        </div>
         <div class="row g-4 row-cols-1 row-cols-md-3 row-cols-lg-4">
             @foreach ($projects as $project)
                 <div class="col">
