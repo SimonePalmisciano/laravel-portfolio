@@ -23,7 +23,7 @@ class ProjectController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create() 
+    public function create()
     {
         return view('project.create');
     }
@@ -61,17 +61,29 @@ class ProjectController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Project $project)
     {
-        //
+        return view('project.edit', compact('project'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Project $project)
     {
-        //
+        $data = $request->all();
+        $stringDate = $data['period'];
+        // dd($stringDate);
+        $date = Carbon::parse($stringDate)->format('Y-m-d');
+
+        $project->name = $data['name'];
+        $project->client = $data['client'];
+        $project->period = $date;
+        $project->summary = $data['summary'];
+
+        $project->update();
+
+        return redirect()->route('projects.show', $project);
     }
 
     /**
@@ -79,6 +91,6 @@ class ProjectController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        
     }
 }
