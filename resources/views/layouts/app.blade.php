@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ config('app.locale') }}">
 
 <head>
     <meta charset="UTF-8">
@@ -11,7 +11,6 @@
 
 <body>
     <header>
-
 
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
@@ -83,9 +82,11 @@
 
     <main class="">
         <div class="container">
-            <h1>
-                @yield('title')
-            </h1>
+            <section class="title my-5">
+                <h1>
+                    @yield('title')
+                </h1>
+            </section>
             @yield('content')
         </div>
     </main>
