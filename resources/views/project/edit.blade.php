@@ -3,11 +3,6 @@
 @section('title', 'Modifica il Progetto')
 
 @section('content')
-    <div class="my-5">
-        <h1>
-            Modifica il Progetto
-        </h1>
-    </div>
 
     <form action="{{ route('projects.update', $project) }}" method="POST">
         @csrf

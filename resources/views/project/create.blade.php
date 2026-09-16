@@ -3,11 +3,6 @@
 @section('title', 'Aggiungi un Progetto')
 
 @section('content')
-    <div class="my-5">
-        <h1>
-            Crea un nuovo Progetto
-        </h1>
-    </div>
 
     <form action="{{ route('projects.store') }}" method="POST">
         @csrf
@@ -28,8 +23,8 @@
         </div>
 
         <div class="form-control mb-3 d-flex flex-column">
-            <label class="form-label" for="type">Tipo del Progetto</label>
-            <select name="type" id="type" class="form-control">
+            <label class="form-label" for="type_id">Tipo del Progetto</label>
+            <select name="type_id" id="type_id" class="form-control">
                 @foreach ($types as $type)
                     <option value="{{ $type->id }}">{{ $type->name }}</option>
                 @endforeach
