@@ -7,12 +7,16 @@
         <div class="row">
 
             <div class="card">
-                <div class="m-2 text-center card-head">
+                <div class="m-2 card-head">
                     <h2>
                         {{ $project->name }}
                     </h2>
                     <p>
                         {{ $project->client }}
+                    </p>
+                    <p>
+                        {{-- @dd($type) --}}
+                        {{$types->find($project->type)->name}}
                     </p>
                 </div>
                 <div class="d-flex gap-2">

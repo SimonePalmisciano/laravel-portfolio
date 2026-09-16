@@ -28,6 +28,15 @@
         </div>
 
         <div class="form-control mb-3 d-flex flex-column">
+            <label class="form-label" for="type">Tipo del Progetto</label>
+            <select name="type" id="type" class="form-control">
+                @foreach ($types as $type)
+                    <option value="{{ $type->id }}">{{ $type->name }}</option>
+                @endforeach
+            </select>
+        </div>
+
+        <div class="form-control mb-3 d-flex flex-column">
             <label for="summary">Riassunto del Progetto</label>
             <textarea class="form-control" name="summary" id="summary" required></textarea>
         </div>
