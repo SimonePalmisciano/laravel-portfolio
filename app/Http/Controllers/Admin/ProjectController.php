@@ -39,6 +39,7 @@ class ProjectController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
+        // dd($data);
         $stringDate = $data['period'];
         // dd($stringDate);
         $date = Carbon::parse($stringDate)->format('Y-m-d');
@@ -53,6 +54,8 @@ class ProjectController extends Controller
 
         $newProject->save();
 
+        $newProject->technologies()->attach($data['technologies']);
+
         return redirect()->route('projects.show', $newProject);
     }
 
@@ -62,8 +65,9 @@ class ProjectController extends Controller
     public function show(Project $project)
     {
         $types = Type::all();
+        // $technologies = Technology::all();
 
-        return view('project.show', compact('project', 'types'));
+        return view('projects.show', compact('project', 'types'));
     }
 
     /**

@@ -25,6 +25,14 @@
                         {{-- @dd($type) --}}
                         {{ $types->find($project->type)->name }}
                     </p>
+                    <div>
+
+                        @foreach ($project->technologies as $technology)
+                            <span class="badge" style="background-color: {{ $technology->color }}">
+                                {{ $technology->name }}
+                            </span>
+                        @endforeach
+                    </div>
                 </div>
                 <div class="d-flex gap-2">
                     <a class="btn btn-outline-secondary" href="{{ route('projects.edit', $project) }}">
