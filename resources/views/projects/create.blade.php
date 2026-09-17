@@ -4,6 +4,12 @@
 
 @section('content')
 
+    <div class="my-2 text-end">
+        <a class="btn btn-outline-primary" href="{{ route('projects.index') }}">
+            Torna indietro
+        </a>
+    </div>
+
     <form action="{{ route('projects.store') }}" method="POST">
         @csrf
 

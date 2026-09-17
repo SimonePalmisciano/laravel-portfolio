@@ -3,6 +3,13 @@
 @section('title', $type->name)
 
 @section('content')
+
+    <div class="text-end">
+        <a class="btn btn-outline-primary" href="{{ route('types.index') }}">
+            Torna indietro
+        </a>
+    </div>
+
     <div class="container my-5">
         <div class="row">
 

@@ -23,7 +23,7 @@ class TypeController extends Controller
      */
     public function create()
     {
-        //
+        return view('types.create');
     }
 
     /**
@@ -31,7 +31,17 @@ class TypeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        // dd($data);
+
+        $newType = new Type();
+
+        $newType->name = $data['name'];
+        $newType->description = $data['description'];
+
+        $newType->save();
+
+        return redirect(route('types.show', $newType));
     }
 
     /**
@@ -45,24 +55,33 @@ class TypeController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Type $type)
     {
-        //
+        return view('types.edit', compact('type'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Type $type)
     {
-        //
+        $data = $request->all();
+
+        $type->name = $data['name'];
+        $type->description = $data['description'];
+
+        $type->update();
+
+        return redirect(route('types.show', $type));
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Type $type)
     {
-        //
+        $type->delete();
+
+        return redirect(route('types.index'));
     }
 }

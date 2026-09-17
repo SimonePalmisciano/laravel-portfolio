@@ -3,6 +3,13 @@
 @section('title', $project->name)
 
 @section('content')
+
+    <div class="my-2 text-end">
+        <a class="btn btn-outline-primary" href="{{ route('projects.index') }}">
+            Torna indietro
+        </a>
+    </div>
+
     <div class="container my-5">
         <div class="row">
 
@@ -16,7 +23,7 @@
                     </p>
                     <p>
                         {{-- @dd($type) --}}
-                        {{$types->find($project->type)->name}}
+                        {{ $types->find($project->type)->name }}
                     </p>
                 </div>
                 <div class="d-flex gap-2">
