@@ -7,10 +7,19 @@
 
 
     <div class="container mb-5">
-        <div class="mb-4">
-            <a class="btn btn-outline-primary" href="{{route('projects.create')}}">
+        <div class="mb-4 d-flex gap-2 justify-content-between">
+            <a class="btn btn-outline-primary" href="{{ route('projects.create') }}">
                 Aggiungi un nuovo Progetto
             </a>
+            <div>
+                <a class="btn btn-outline-primary" href="{{ route('types.index') }}">
+                    Visualizza Tutte le Tipologie
+                </a>
+                <a class="btn btn-outline-primary" href="{{ route('dashboard') }}">
+                    Torna indietro
+                </a>
+
+            </div>
         </div>
         <div class="row g-4 row-cols-1 row-cols-md-3 row-cols-lg-4">
             @foreach ($projects as $project)

@@ -8,19 +8,27 @@
             <div class="col-6">
                 <div class="card p-3 text-center">
                     <h5>
-                        Admin nome: {{ $user['name']}}
+                        Admin nome: {{ $user['name'] }}
                     </h5>
 
                     <p>
-                        Admin email: {{$user['email']}}
+                        Admin email: {{ $user['email'] }}
                     </p>
                 </div>
             </div>
-            <div class="col-6 my-4">
-                <a class="btn btn-outline-primary" href="{{route('projects.index')}}">
-                    visualizza progetti
-                </a>
+            <div class="col d-flex gap-2">
+                <div class="my-4">
+                    <a class="btn btn-outline-primary" href="{{ route('projects.index') }}">
+                        Visualizza Tutti i Progetti
+                    </a>
+                </div>
+                <div class="my-4">
+                    <a class="btn btn-outline-primary" href="{{ route('types.index') }}">
+                        Visualizza Tutte le Tipologie
+                    </a>
+                </div>
             </div>
+
         </div>
     </div>
 @endsection
