@@ -2,6 +2,23 @@
 
 @section('title', 'Dashboard Amministratore')
 
+    {{-- 
+        NELLA DASHBOARD VORREI CREARE UNA VISTA IN CUI:
+        MOSTRO I DATI DELL'AMMINISTRATORE
+        E SOTTO
+        TRE SCHEDE CHE MI PERMETTONO DI GESTIRE:
+        - PROGETTI
+        - TIPO
+        -TECNOLOGIE
+        tre schede che hanno una panoramica della pagina in cui andre es:
+        Tutti i Progetti
+        ----------------
+        una panoramica di tutti i progetti
+        [pulsante:] vai a tutti i progetti
+
+        e cosi anche per le altre pagine
+    --}}
+
 @section('content')
     <div class="container p-5 mb-4">
         <div class="row">

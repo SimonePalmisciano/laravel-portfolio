@@ -34,9 +34,25 @@
             <label class="form-label" for="type">Tipo del Progetto</label>
             <select name="type" id="type" class="form-control">
                 @foreach ($types as $type)
-                    <option value="{{ $type->id }}">{{ $type->name }}</option>
+                    <option value="{{ $type->id }}" {{ $project->type_id == $type->id ? 'selected' : '' }}>
+                        {{ $type->name }}
+                    </option>
                 @endforeach
             </select>
+        </div>
+
+        {{-- @dd($project->technologies) --}}
+        <div>
+            Tecnologie
+        </div>
+        <div class="form-control mb-3 d-flex flex-wrap">
+            @foreach ($technologies as $technology)
+                <div class="me-2">
+                    <input type="checkbox" name="technologies[]" value="{{ $technology->id }}"
+                        id="technology-{{ $technology->id }}" {{$project->technologies->contains($technology->id) ? 'checked' : ''}}>
+                    <label for="technology-{{ $technology->id }}">{{ $technology->name }}</label>
+                </div>
+            @endforeach
         </div>
 
         <div class="form-control mb-3 d-flex flex-column">

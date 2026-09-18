@@ -76,8 +76,9 @@ class ProjectController extends Controller
     public function edit(Project $project)
     {
         $types = Type::all();
+        $technologies = Technology::all();
 
-        return view('project.edit', compact('project', 'types'));
+        return view('projects.edit', compact('project', 'types', 'technologies'));
     }
 
     /**
@@ -86,6 +87,7 @@ class ProjectController extends Controller
     public function update(Request $request, Project $project)
     {
         $data = $request->all();
+        // dd($data);
         $stringDate = $data['period'];
         // dd($stringDate);
         $date = Carbon::parse($stringDate)->format('Y-m-d');
@@ -94,9 +96,11 @@ class ProjectController extends Controller
         $project->client = $data['client'];
         $project->period = $date;
         $project->summary = $data['summary'];
-        $project->type_id = $data['type_id'];
+        $project->type_id = $data['type'];
 
         $project->update();
+
+        $project->technologies()->sync($data['technologies']);
 
         return redirect()->route('projects.show', $project);
     }
