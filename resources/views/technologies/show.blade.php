@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
-@section('title', $type->name)
+@section('title', $technology->name)
 
 @section('content')
 
     <div class="text-end">
-        <a class="btn btn-outline-primary" href="{{ route('types.index') }}">
+        <a class="btn btn-outline-primary" href="{{ route('technologies.index') }}">
             Torna indietro
         </a>
     </div>
@@ -16,18 +16,18 @@
             <div class="card">
                 <div class="m-2 card-head">
                     <h2>
-                        {{ $type->name }}
+                        {{ $technology->name }}
                     </h2>
                 </div>
                 <hr>
                 <div class="card-body">
                     <p>
-                        {{ $type->description }}
+                        {{ $technology->description }}
                     </p>
                 </div>
                 <hr>
                 <div class="d-flex gap-2 my-2">
-                    <a class="btn btn-outline-secondary" href="{{ route('types.edit', $type) }}">
+                    <a class="btn btn-outline-secondary" href="{{ route('technologies.edit', $technology) }}">
                         Modifica
                     </a>
                     <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal"
@@ -52,7 +52,7 @@
                         <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
                             Annulla
                         </button>
-                        <form action="{{ route('types.destroy', $type) }}" method="POST">
+                        <form action="{{ route('technologies.destroy', $technology) }}" method="POST">
                             @csrf
                             @method('DELETE')
                             <input class="btn btn-outline-danger" type="submit" value="Elimina">
