@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Admin\DasboardController;
+use App\Http\Controllers\Admin\TechnologyController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\TypeController;
@@ -24,4 +24,6 @@ Route::resource('projects', ProjectController::class);
     // ->middleware(['auth', 'verified']);
 
 Route::resource('types', TypeController::class);
+
+Route::resource('technologies', TechnologyController::class);
 require __DIR__.'/auth.php';

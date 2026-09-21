@@ -21,9 +21,15 @@
                 </div>
                 <hr>
                 <div class="card-body">
-                    <p>
-                        {{ $technology->description }}
-                    </p>
+                    <div class="color d-flex align-items-center gap-2 my-2">
+                        <label for="color">
+                            Colore:
+                        </label>
+                        <input type="color" name="" id="color" value="{{ $technology->color }}" disabled>
+                        <p class="m-0">
+                            HEX: {{$technology->color}}
+                        </p>
+                    </div>
                 </div>
                 <hr>
                 <div class="d-flex gap-2 my-2">

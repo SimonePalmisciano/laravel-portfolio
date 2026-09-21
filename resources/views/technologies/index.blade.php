@@ -33,10 +33,13 @@
                         </div>
                         <hr>
                         <div class="card-body">
-                            <p>
-                                {{ $technology->color }}
-                            </p>
-                            <a class="btn btn-outline-primary" href="{{ route('technologies.show', $type->id) }}">
+                            <div class="color d-flex align-items-center gap-2 my-2">
+                                <label for="color">
+                                    Colore:
+                                </label>
+                                <input type="color" name="" id="color" value="{{ $technology->color }}" disabled>
+                            </div>
+                            <a class="btn btn-outline-primary" href="{{ route('technologies.show', $technology->id) }}">
                                 Visualizza
                             </a>
                         </div>
